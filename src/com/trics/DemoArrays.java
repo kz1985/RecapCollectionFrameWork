@@ -24,7 +24,11 @@ public class DemoArrays {
 		 for(int i =0; i<d.length; i++) {
 			 System.out.print(d[i]+", ");
 		 }
-		
+		String lol = "tot_tom";
+		String[] a = lol.split("_");
+		for(String m:a) {
+			System.out.print("\n"+m);
+		}
 	}
 	
 

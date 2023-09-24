@@ -2,6 +2,7 @@ package com.ComparatorAndComparable;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /*
@@ -17,6 +18,7 @@ import java.util.List;
  * */
 
 class Student implements Comparable<Student> {
+	public static Comparator names;
 	private int id;
 	private String name;
 	private int age;

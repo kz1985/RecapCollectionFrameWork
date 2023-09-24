@@ -3,14 +3,16 @@ package com.ComparatorAndComparable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
-class Students{
+class Employee implements Comparable<Employee>{
 	private int id;
 	private String name;
 	private int age;
 	
-	public Students(int id, String name, int age) {
+	public Employee(int id, String name, int age) {
 		
 		this.id=id;
 		this.name=name;
@@ -25,10 +27,23 @@ class Students{
 	public int getAge() {
 		return age;
 	}
+	public int compareTo(Employee e1) {
+		return this.age - e1.age;
+	}
+	public static Comparator<Employee> names = new Comparator<Employee>() {
+		
+		@Override
+		public int compare(Employee o1, Employee o2) {
+			// TODO Auto-generated method stub
+			return o1.getName().compareTo(o2.getName());
+		}
+	};
 	public String toString() {
 		return"[ ID = "+id+" Name = "+name+" Age = "+age+" ]";
 	}
-}
+	
+
+};
 
 public class BasicSortingAndError {
 	public static void main(String[] args) {
@@ -38,34 +53,36 @@ public class BasicSortingAndError {
 		//alist.add(new Student(1, "Jorna", 1))
 	
 	//Create student list -Method 2	
-		List<Students> alist = Arrays.asList(
-				new Students(1, "Miraz", 3),
-				new Students(2, "Rihan", 11),
-				new Students(3, "Anika", 7),
-				new Students(4, "Arman", 5),
-				new Students(5, "Tuhi", 13),
-				new Students(6, "Tahmina", 9),
-				new Students(7, "Ohi", 15),
-				new Students(8, "Sayed", 22),
-				new Students(9, "Sama", 26));
+		List<Employee> alist = Arrays.asList(
+				new Employee(1, "Miraz", 3),
+				new Employee(2, "Rihan", 11),
+				new Employee(3, "Anika", 7),
+				new Employee(4, "Arman", 5),
+				new Employee(5, "Tuhi", 13),
+				new Employee(6, "Tahmina", 9),
+				new Employee(7, "Ohi", 15),
+				new Employee(8, "Sayed", 22),
+				new Employee(9, "Sama", 26));
 		
 		//Print Array Elements without sorting
 		System.out.println("Print Element before Sorting..\n");
-		for(Students lists:alist) {
+		for(Employee lists:alist) {
 	
 			//System.out.println(lists.getName());
 			System.out.println(lists);
 		}
-/*
+
 	//Sorting List Element	
-		Collections.sort(alist);
+	Collections.sort(alist);
+	//Sorting list with comparator
+	Collections.sort(alist, Employee.names);
 		
 	//Print Array Elements without sorting
 	   System.out.println("Print Element After Sorting..\n");
-		for(Students lists:alist) {
+		for(Employee lists:alist) {
 			System.out.println(lists);
 		}
-*/
+
 		
 	}
 
